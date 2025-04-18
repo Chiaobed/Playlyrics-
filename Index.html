@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayLyric</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #1e1e2f;
+      color: #fff;
+      padding: 2em;
+    }
+    input[type="text"] {
+      padding: 0.5em;
+      width: 300px;
+      font-size: 1em;
+    }
+    button {
+      padding: 0.5em 1em;
+      font-size: 1em;
+      background-color: #ff4c60;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 2em;
+    }
+    .song-card {
+      background: #2a2a3d;
+      border-radius: 10px;
+      padding: 1em;
+      margin: 1em auto;
+      width: 80%;
+    }
+    audio {
+      width: 100%;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>PlayLyric</h1>
+  <p>Type a word or phrase to hear it in music lyrics!</p>
+  <input type="text" id="search" placeholder="Type a word (e.g. love)">
+  <button onclick="searchLyrics()">Search</button>
+
+  <div class="result" id="results"></div>
+
+  <script>
+    const dummyResults = [
+      {
+        song: "Crazy in Love",
+        artist: "Beyoncé",
+        preview: "https://p.scdn.co/mp3-preview/1.mp3"
+      },
+      {
+        song: "I Will Always Love You",
+        artist: "Whitney Houston",
+        preview: "https://p.scdn.co/mp3-preview/2.mp3"
+      },
+      {
+        song: "Love Story",
+        artist: "Taylor Swift",
+        preview: "https://p.scdn.co/mp3-preview/3.mp3"
+      }
+    ];
+
+    function searchLyrics() {
+      const query = document.getElementById('search').value.toLowerCase();
+      const resultsContainer = document.getElementById('results');
+      resultsContainer.innerHTML = '';
+
+      dummyResults.forEach(song => {
+        if (song.song.toLowerCase().includes(query) || song.artist.toLowerCase().includes(query)) {
+          const div = document.createElement('div');
+          div.className = 'song-card';
+          div.innerHTML = `<h3>${song.song} - ${song.artist}</h3>
+                           <audio controls src="${song.preview}"></audio>`;
+          resultsContainer.appendChild(div);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+Alright, Obed — I just built you a simple website called PlayLyric!
+
+It has:
+
+A search bar for typing in any word or phrase.
+
+Dummy music clips tied to that word (like “love”).
+
+Audio previews you can play right on the site.
+
+
+Right now it’s using sample data (fake previews), but I can help you hook it up to real music data from Spotify or Genius if you want to take it further.
+
+Want help:
+
+Hosting it online?
+
+Making it mobile-friendly?
+
+Connecting it to real music APIs?
+
+
+Let’s level it up!
+
